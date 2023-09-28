@@ -5,7 +5,7 @@ const AboutUs = () => {
     const [data, setData] = useState(null);
 
     useEffect(() => {
-        axios.get('http://localhost:YOUR_BACKEND_PORT/api/about-us')  // Replace YOUR_BACKEND_PORT with the port your backend is running on
+        axios.get('http://localhost:7002/about-us')  // Replace YOUR_BACKEND_PORT with the port your backend is running on
         .then(response => {
             setData(response.data);
         })
