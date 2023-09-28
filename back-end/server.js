@@ -21,6 +21,3 @@ const close = () => {
 module.exports = {
   close: close,
 }
-
-// Sample data for "About Us" page
-
