@@ -1,29 +1,13 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React from 'react';
 
 const AboutUs = () => {
-  const [data, setData] = useState(null);
-
-  useEffect(() => {
-    // Fetch data from backend
-    axios.get('/api/about-us')
-      .then(response => {
-        setData(response.data);
-      })
-      .catch(error => {
-        console.error("Error fetching data:", error);
-      });
-  }, []);
-
-  if (!data) return <div>Loading...</div>;
-
-  return (
-    <div>
-      <h2>About Us</h2>
-      <p>{data.aboutText}</p>
-      <img src={data.imageUrl} alt="About Eric Zhu" style={{ width: '150px' }} />
-    </div>
-  );
+    return (
+        <div>
+            <h2>About Us</h2>
+            <p>{aboutUsData}My name is Eric Zhu and I am a senior in NYU. My major is computer science joint econ and I have been struggled four years studying these two hard major.</p>
+            <img src="./WechatIMG232.jpg" alt="Eric Zhu" />
+        </div>
+    );
 }
 
 export default AboutUs;
