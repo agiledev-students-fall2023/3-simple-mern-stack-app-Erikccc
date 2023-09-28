@@ -29,7 +29,7 @@ const aboutUsData = {
 };
 
 // Endpoint to serve "About Us" data
-app.get('/about-us', (req, res) => {
+app.get('/about-us',async (req, res) => {
   res.json(aboutUsData);
 });
 
