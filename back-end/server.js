@@ -21,3 +21,14 @@ const close = () => {
 module.exports = {
   close: close,
 }
+
+// Sample data for "About Us" page
+const aboutUsData = {
+  aboutText: "I am [Your Name]. I love building web applications...",
+  imageUrl: "URL_to_your_image"  // Replace with the actual URL of your image
+};
+
+// Endpoint to serve "About Us" data
+app.get('/api/about-us', (req, res) => {
+  res.json(aboutUsData);
+});
