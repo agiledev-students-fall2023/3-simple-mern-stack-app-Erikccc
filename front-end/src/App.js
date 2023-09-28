@@ -6,7 +6,6 @@ import Home from './Home';
 import Header from './Header';
 import Footer from './Footer';
 import AboutUs from './AboutUs';
-import Navigation from './Navigation';
 
 
 const App = props => {
@@ -26,13 +25,7 @@ const App = props => {
             <Route path="/messages/:messageId" element={<MessageStandalone />} />
 
             {/* a route for the About Us page */}
-            <Navigation />
-                
-                <Switch>
-                    {/* ... Your other routes ... */}
-                    <Route path="/about-us" component={AboutUs} />
-                </Switch>
-
+            <Route path="/about-us" element={<AboutUs />} />
           </Routes>
         </main>
         <Footer />
