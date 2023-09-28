@@ -78,5 +78,17 @@ app.post('/messages/save', async (req, res) => {
   }
 })
 
+
+
+const aboutUsData = {
+  aboutText: "Hello! I'm John Doe, a passionate web developer...",
+  imageUrl: "https://example.com/path/to/your/image.jpg"  // Replace with the actual URL of your image
+};
+
+// Endpoint to serve "About Us" data
+app.get('/api/about-us', (req, res) => {
+  res.json(aboutUsData);
+});
+
 // export the express app we created to make it available to other modules
 module.exports = app // CommonJS export style!
