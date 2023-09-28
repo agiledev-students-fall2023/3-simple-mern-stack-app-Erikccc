@@ -25,6 +25,8 @@ const App = props => {
               element={<MessageStandalone />}
             />
           </Routes>
+          <Route path="/about-us" component={AboutUs} />
+
         </main>
         <Footer />
       </Router>
