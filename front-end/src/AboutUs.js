@@ -1,6 +1,6 @@
 import React from 'react';
 
-const AboutUs = () => {
+const AboutUs = (aboutUsData) => {
     return (
         <div>
             <h2>About Us</h2>
