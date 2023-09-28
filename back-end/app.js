@@ -23,15 +23,28 @@ const { Message } = require('./models/Message');
 const { User } = require('./models/User');
 
 // Sample data for "About Us" page
+// Sample data for "About Us" page
 const aboutUsData = {
   aboutText: "My name is Eric Zhu and I am a senior in NYU. My major is computer science joint econ and I have been struggled four years studying these two hard major.",
   imageUrl: "/public/WechatIMG232.jpg"
 };
 
 // Endpoint to serve "About Us" data
-app.get('/about-us',async (req, res) => {
-  res.json(aboutUsData);
+app.get('/about-us', async (req, res) => {
+  try {
+    res.json({
+      aboutUs: aboutUsData,
+      status: 'all good',
+    });
+  } catch (err) {
+    console.error(err);
+    res.status(400).json({
+      error: err,
+      status: 'failed to retrieve about us data',
+    });
+  }
 });
+
 
 app.get('/messages', async (req, res) => {
   try {
