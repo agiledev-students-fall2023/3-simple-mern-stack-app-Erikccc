@@ -1,29 +1,21 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+
+
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 const AboutUs = () => {
-  const [data, setData] = useState(null);
-
-  useEffect(() => {
-    // Fetch data from backend
-    axios.get('/Users/ericzhu/3-simple-mern-stack-app-Erikccc/back-end')
-      .then(response => {
-        setData(response.data);
-      })
-      .catch(error => {
-        console.error("Error fetching data:", error);
-      });
-  }, []);
-
-  if (!data) return <div>Loading...</div>;
-
-  return (
-    <div>
-      <h2>About Us</h2>
-      <p>{data.aboutText}</p>
-      <img src={data.imageUrl} alt="About us" />
-    </div>
-  );
+    return (
+        <div>
+            <nav>
+                <Link to="/">Home</Link> | {/* This is a link to the home page or main page */}
+                <Link to="/about-us">About Us</Link> {/* This link will reload the "About Us" page */}
+            </nav>
+            
+            <h2>About Us</h2>
+            <p>Your content here...</p>
+            {/* You can add more content, images, etc. */}
+        </div>
+    );
 }
 
 export default AboutUs;
