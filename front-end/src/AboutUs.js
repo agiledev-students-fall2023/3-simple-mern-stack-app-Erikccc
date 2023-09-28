@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 const AboutUs = () => {
   const [data, setData] = useState(null);
@@ -18,11 +19,13 @@ const AboutUs = () => {
   if (!data) return <div>Loading...</div>;
 
   return (
-    <div>
-      <h2>About Us</h2>
+    <article className="AboutUs-article">
+      <h2>
+        <Link to="/about-us">About Us</Link>
+      </h2>
       <p>{data.aboutText}</p>
       <img src={data.imageUrl} alt="Eric Zhu" />
-    </div>
+    </article>
   );
 }
 
