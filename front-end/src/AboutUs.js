@@ -1,13 +1,29 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 
 const AboutUs = () => {
-    return (
-        <div>
-            <h2>About Us</h2>
-            <p>{aboutUsData}My name is Eric Zhu and I am a senior in NYU. My major is computer science joint econ and I have been struggled four years studying these two hard major.</p>
-            <img src="./WechatIMG232.jpg" alt="Eric Zhu" />
-        </div>
-    );
+  const [data, setData] = useState(null);
+
+  useEffect(() => {
+    // Fetch data from backend
+    axios.get('/about-us')  // Assuming your backend server is running on the same domain as your frontend
+      .then(response => {
+        setData(response.data.aboutUs);
+      })
+      .catch(error => {
+        console.error("Error fetching data:", error);
+      });
+  }, []);
+
+  if (!data) return <div>Loading...</div>;
+
+  return (
+    <div>
+      <h2>About Us</h2>
+      <p>{data.aboutText}</p>
+      <img src={data.imageUrl} alt="Eric Zhu" />
+    </div>
+  );
 }
 
 export default AboutUs;
